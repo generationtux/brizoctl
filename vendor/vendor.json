@@ -1,0 +1,13 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "1keN4Q9F8uHk/Gt5YXG0oCEecKM=",
+			"path": "github.com/urfave/cli",
+			"revision": "2526b57c56f30b50466c96c4133b1a4ad0f0191f",
+			"revisionTime": "2017-02-15T05:17:05Z"
+		}
+	],
+	"rootPath": "github.com/generationtux/brizoctl"
+}
