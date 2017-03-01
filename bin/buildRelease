@@ -1,0 +1,24 @@
+#!/bin/bash
+
+version=$1
+if [ -z $1 ]; then
+  echo "Provide the version number: buildRelease 0.1.3"
+  exit 0
+fi
+
+if ! which gox > /dev/null; then
+  echo "==> Installing gox..."
+  go get -u github.com/mitchellh/gox
+fi
+
+# instruct gox to build statically linked binaries
+export CGO_ENABLED=0
+
+echo "Building..."
+gox \
+  -output="dist/brizoctl-$version-{{.OS}}-{{.Arch}}" \
+  -os="linux darwin" \
+  -arch="amd64" \
+
+echo "Done! Results.."
+ls -la dist | grep brizoctl-$version
