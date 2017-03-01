@@ -12,6 +12,7 @@ func main() {
 	app.Name = "brizoctl"
 	app.Usage = "CLI client for Brizo"
 	app.Description = "brizoctl enables users to manage Brizo deployments from the command line"
+	app.Version = "0.1.0"
 
 	// startup
 	app.Before = func(c *cli.Context) error {
