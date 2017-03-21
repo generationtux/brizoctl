@@ -19,6 +19,15 @@ func HTTPGet(path string) (string, error) {
 	return handleResponse(response, body, errs)
 }
 
+// HTTPPost sends a POST request
+func HTTPPost(path string) (string, error) {
+	request := gorequest.New().Post(buildURL(path))
+	requestHeaders(request)
+	response, body, errs := request.End()
+
+	return handleResponse(response, body, errs)
+}
+
 func handleResponse(response gorequest.Response, body string, errs []error) (string, error) {
 	if response.StatusCode == 401 {
 		return "", errors.New("Unauthorized")

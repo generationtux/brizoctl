@@ -49,6 +49,12 @@ func main() {
 			Usage:       "retrieve details of specified resource",
 			Subcommands: getCommands,
 		},
+		cli.Command{
+			Name:      "promote",
+			UsageText: "promote [APP] [SOURCE ENVIRONMENT] [DESTINATION ENV]",
+			Usage:     "promote an application from one environment to another",
+			Action:    PromoteApplication,
+		},
 	}
 
 	// start your engines!
