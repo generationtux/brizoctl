@@ -24,8 +24,6 @@ func PromoteApplication(c *cli.Context) error {
 	appName := c.Args().Get(0)
 	envSrcName := c.Args().Get(1)
 	envDstName := c.Args().Get(2)
-	var envSrc environment
-	var envDst environment
 
 	body, err := HTTPGet("/api/v1/applications/" + appName)
 	if err != nil {
@@ -39,6 +37,8 @@ func PromoteApplication(c *cli.Context) error {
 	}
 
 	// get environment
+	var envSrc environment
+	var envDst environment
 	for _, v := range app.Environments {
 		if v.Name == envSrcName {
 			envSrc = v
