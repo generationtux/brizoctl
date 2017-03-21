@@ -15,7 +15,7 @@ func PromoteApplication(c *cli.Context) error {
 		UUID string `json:"uuid"`
 	}
 
-	type appDetails struct {
+	type application struct {
 		Name         string        `json:"name"`
 		UUID         string        `json:"uuid"`
 		Environments []environment `json:"environments"`
@@ -32,7 +32,7 @@ func PromoteApplication(c *cli.Context) error {
 		return err
 	}
 
-	var app appDetails
+	var app application
 	err = json.Unmarshal([]byte(body), &app)
 	if err != nil {
 		return errors.New("Unable to read JSON response.")
@@ -54,7 +54,7 @@ func PromoteApplication(c *cli.Context) error {
 		return err
 	}
 
-	fmt.Println("Promotion successfully")
+	fmt.Println("Promotion successful")
 
 	return nil
 }
